@@ -1,0 +1,32 @@
+{
+  "name": "webdesignassignment",
+  "version": "1.0.0",
+  "description": "UCCD2223 Website design and development project assignment, aimed to create a static website for a local night market staller",
+  "main": "index.html",
+  "dependencies": {
+    "bootstrap": "^4.5.2",
+    "jquery": "^3.5.1",
+    "popper.js": "^1.16.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jameshoe1999/webdesignassignment.git"
+  },
+  "keywords": [
+    "uccd2213",
+    "assignment",
+    "utar",
+    "webdesign",
+    "webdevelopment"
+  ],
+  "author": "James Hoe, Teow Kai Shyang, Ang Sea Zhe, Lai Hong Pei, Chew Jia Zheng",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jameshoe1999/webdesignassignment/issues"
+  },
+  "homepage": "https://github.com/jameshoe1999/webdesignassignment#readme"
+}
