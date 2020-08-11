@@ -1,0 +1,16 @@
+@media screen and (min-width:768px) {
+  .half-angle.grey-container::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 101%;
+    top: -12px;
+    left: 0%;
+    -webkit-transform: skew(-14deg, -2deg);
+    transform: skew(-14deg, -2deg);
+  }
+
+  .grey-container::after {
+    background-color: #E1F5FE;
+  }
+}

@@ -1,0 +1,145 @@
+@font-face {
+  font-family: Lora;
+  src: url(../webfonts/Lora/Lora-VariableFont_wght.ttf);
+}
+
+@font-face {
+  font-family: Recursive;
+  src: url(../webfonts/Recursive/Recursive-VariableFont_CASL\,CRSV\,MONO\,slnt\,wght.ttf)
+}
+
+:root {
+  --yellow-color: #feb236;
+  --orange-color: #ff7b25;
+  --purple-color: #6b5b95;
+  --magenta-color: #d64161;
+  --pink-color: #f7786b;
+  --blue-color: #034f84;
+  --green-color: #82b74b;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  font-family: Recursive;
+  line-height: 2rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: Lora;
+}
+
+h1 {
+  color: var(--orange-color);
+  font-weight: 700;
+  font-size: 3.5rem;
+}
+
+main .nav.nav-pills .nav-item {
+  max-width: 250px;
+}
+
+.bg-green {
+  background-color: var(--green-color);
+}
+
+.content {
+  width: 50%;
+  text-align: center;
+  margin: auto auto;
+}
+
+.card#drink-type-card {
+  max-width: 500px;
+  margin: 1.5rem auto;
+}
+
+.carousel-item img {
+  width: 100%;
+}
+
+.col-img {
+  width: 100%;
+  margin: auto auto;
+  position: relative;
+  z-index: 1;
+}
+
+.dropdown-menu {
+  border: unset;
+  box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
+  display: block;
+  width: 100%;
+  height: fit-content;
+  padding: 1rem;
+  transition: top 0.5s ease;
+  z-index: 1;
+  text-align: center;
+  top: -15rem;
+}
+
+.dropdown-menu.show {
+  top: 4rem;
+}
+
+.fruit-icon {
+  display: inline-flex;
+  font-size: 3.5rem;
+  justify-content: center;
+  flex: 1;
+  top: 0;
+  transition: top .5s ease;
+  position: relative;
+}
+
+.fruit-icon:hover {
+  top: -10px;
+}
+
+.fruit-tab {
+  display: none;
+}
+
+.fruit-tab.active {
+  display: block;
+  position: relative;
+}
+
+.mobile-col {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.nav-link {
+  color: #000;
+}
+
+.skew-block {
+  transform: skewY(-2deg);
+}
+
+.skew-block .container {
+  padding: 2rem auto;
+  transform: skewY(2deg);
+}
+
+.sub-container {
+  padding: 3rem 1.25rem;
+}
+
+#main-header {
+  margin: 1.75rem auto;
+  text-align: center;
+}
+
+#main-navbar {
+  background: rgb(5,91,42);
+  background: linear-gradient(90deg, rgba(5,91,42,1) 0%, rgba(0,163,196,1) 100%);
+  color: #fff;
+  position: fixed;
+  width: 100%;
+  z-index: 100;
+  top: 0;
+}

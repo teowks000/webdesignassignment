@@ -1,0 +1,22 @@
+@media screen and (max-width:767px) {
+  .container.skew-block {
+    width: 100%;
+  }
+  
+  .content {
+    text-align: justify;
+    width: 100%;
+  }
+
+  .mobile-col {
+    flex-direction: column;
+  }
+
+  .nav#drink-type-header {
+    flex-direction: column;
+  }
+
+  .nav#drink-type-header .nav-item {
+    margin: auto auto;
+  }
+}
