@@ -708,7 +708,7 @@ textarea:focus {
 /* 10. Testimonial */
 /* line 2, ../sass/layout/_testimonial.scss */
 .testimonial-area {
-  background-image: url("../images/testimonial-bg.jpg");
+  background-image: url("../images/testimonial-bg(1).jpeg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -821,7 +821,7 @@ textarea:focus {
 /* 12. Table */
 /* line 2, ../sass/layout/_table.scss */
 .table-area {
-  background-image: url("../images/table-bg.jpg");
+  background-image: url("../images/table-bg(1).jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
