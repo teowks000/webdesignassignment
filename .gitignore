@@ -1,5 +1,9 @@
 .sass-cache
+.vscode/
 config.rb
 package-lock.json
 
 assets/sass/*
+
+node_modules/
+node_modules/*

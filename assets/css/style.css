@@ -421,7 +421,7 @@ textarea:focus {
 .banner-area {
   padding: 400px 0 350px;
   background-color: #b0b0b0;
-  background-image: url("../images/banner-bg(1).jpeg");
+  background-image: url("../images/banner-bg.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -708,7 +708,7 @@ textarea:focus {
 /* 10. Testimonial */
 /* line 2, ../sass/layout/_testimonial.scss */
 .testimonial-area {
-  background-image: url("../images/testimonial-bg(1).jpeg");
+  background-image: url("../images/testimonial-bg.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -821,7 +821,7 @@ textarea:focus {
 /* 12. Table */
 /* line 2, ../sass/layout/_table.scss */
 .table-area {
-  background-image: url("../images/table-bg(1).jpg");
+  background-image: url("../images/table-bg.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -3501,6 +3501,12 @@ h6 {
 .template-btn3:hover span {
   color: #ffb606;
   left: 115%;
+}
+
+/* line 49, ../sass/module/_btn.scss */
+.template-btn4:hover {
+  background: #000;
+  color: white;
 }
 
 /* 16. Form */
