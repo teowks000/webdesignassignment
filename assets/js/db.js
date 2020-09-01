@@ -73,17 +73,21 @@ request.onupgradeneeded = function (event) {
 //   };
 // }
 
-function getData(ids) {
+function getData(items) {
   return new Promise(function (res, rej) {
     const results = [];
     request.onsuccess = function (event) {
       const db = event.target.result;
       const objectStore = db.transaction("juices").objectStore("juices");
-      ids.forEach((id) => {
+      items.forEach(({ id, qty }) => {
         objectStore.get(id).onsuccess = function (e) {
-          results.push(e.target.result);
-          if (results.length === ids.length) {
-            res(results);
+          const result = e.target.result;
+          if (result !== undefined) {
+            result['qty'] = qty;
+            results.push(result);
+            if (results.length === items.length) {
+              res(results);
+            }
           }
         };
       });

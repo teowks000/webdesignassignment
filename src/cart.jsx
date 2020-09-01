@@ -1,7 +1,5 @@
 import React, { Component } from "react";
 
-const request = window.indexedDB.open("funfood");
-
 class Cart extends Component {
   constructor(props) {
     super(props);
@@ -10,49 +8,89 @@ class Cart extends Component {
     };
 
     this.mapItem = this.mapItem.bind(this);
+    this.renderHeader = this.renderHeader.bind(this);
+    this.renderFooter = this.renderFooter.bind(this);
+    this.handleRemove = this.handleRemove.bind(this);
+    this.handleRemoveAll = this.handleRemoveAll.bind(this);
     this.getItemFromDB = this.getItemFromDB.bind(this);
     this.getItemFromDB();
   }
 
-  async getItemFromDB(lists) {
+  async getItemFromDB() {
     const carts = sessionStorage.getItem("carts");
     if (carts !== null) {
       let items = JSON.parse(carts) || [];
-      const ids = items.map((item) => item.id);
-      const data = await getData(ids);
+      const data = await getData(items);
+
       this.setState({ items: data });
     }
   }
 
-  mapItem(item) {
+  handleRemove(index) {
+    const { items } = this.state;
+    items.splice(index, 1);
+    this.setState({items});
+  }
+
+  handleRemoveAll() {
+    this.setState({ items: [] });
+  }
+
+  mapItem(item, index) {
     const { id, name, price, qty } = item;
     return (
-      <li
-        className="list-group-item d-flex justify-content-between lh-condensed"
-        key={"juice-" + id}
-        id={name}
-      >
-        <div>
-          <h6 className="my-0">{name}</h6>
-          <small className="text-muted">Brief description</small>
-        </div>
-        <span className="text-muted">{price}</span>
-        <span>{qty}</span>
-      </li>
+      <tr key={"juice-" + id} id={name}>
+        <td>{name}</td>
+        <td>{price.toFixed(2)}</td>
+        <td>{qty}</td>
+        <td><button className="btn btn-danger" onClick={() => this.handleRemove(index)}>Remove</button></td>
+      </tr>
     );
+  }
+
+  renderHeader() {
+    return (
+      <thead>
+        <th>Juices</th>
+        <th>Price</th>
+        <th>Qty</th>
+        <th>Action</th>
+      </thead>
+    )
+  }
+
+  renderFooter() {
+    const { items } = this.state;
+    return (
+      <tfoot>
+        <th>No. of items: {items.length}</th>
+        <th>{items.map((item) => item.price * item.qty).reduce((acc, cur) => acc + cur, 0.0).toFixed(2)}</th>
+        <th>{items.reduce((acc, cur) => acc + parseInt(cur.qty), 0)}</th>
+        <th className="text-muted text-danger">
+          <button className="btn btn-outline-danger" onClick={this.handleRemoveAll}>Remove All</button>
+        </th>
+      </tfoot>
+    )
   }
 
   render() {
     const { items } = this.state;
     if (items.length < 1) {
       return (
-        <li className="list-group-item d-flex justify-content-between lh-condensed">
+        <td colSpan="100%">
           Nothing is here, get your order now!
-        </li>
+        </td>
       );
     }
     const carts = items.map(this.mapItem);
-    return <React.Fragment>{carts}</React.Fragment>;
+    return (
+      <React.Fragment>
+        {this.renderHeader()}
+        <tbody>
+          {carts}
+        </tbody>
+        {this.renderFooter()}
+      </React.Fragment>);
   }
 }
 
