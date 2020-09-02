@@ -19,18 +19,18 @@ if (!window.indexedDB) {
   );
 }
 
-const request = window.indexedDB.open("funfood");
+const request = window.indexedDB.open("funfood", 2);
 
 request.onerror = function (event) {
   console.log("No database found.");
 };
 
 const dishes = [
-  { id: 1, name: "orange juice", price: 18.0 },
-  { id: 2, name: "apple juice", price: 19.5 },
-  { id: 3, name: "pineapple juice", price: 28.0 },
-  { id: 4, name: "grape juice", price: 38.0 },
-  { id: 5, name: "strawberry juice", price: 18.0 },
+  { id: 1, name: "orange juice", description: "Freshly brewed orange juice", price: 18.0 },
+  { id: 2, name: "apple juice", description: "Freshly brewed apple juice", price: 19.5 },
+  { id: 3, name: "pineapple juice", description: "Freshly brewed pineapple juice", price: 28.0 },
+  { id: 4, name: "grape juice", description: "Freshly brewed grape juice", price: 38.0 },
+  { id: 5, name: "strawberry juice", description: "Freshly brewed strawberry juice", price: 18.0 },
 ];
 
 request.onsuccess = function (event) {
@@ -40,6 +40,10 @@ request.onsuccess = function (event) {
 request.onupgradeneeded = function (event) {
   const db = event.target.result;
   const transaction = event.target.transaction;
+  console.log("loading...");
+  if (event.oldVersion < 2) {
+    db.deleteObjectStore("juices");
+  }
   const objectStore = db.createObjectStore("juices", { keyPath: "id" });
   const juiceObjectStore = transaction.objectStore("juices", "readwrite");
 
@@ -49,12 +53,7 @@ request.onupgradeneeded = function (event) {
   juiceObjectStore.onerror = function (event) {
     console.log("Failed to load data.");
   };
-
-  console.log("loading...");
-
-  objectStore.createIndex("name", "name", { unique: true });
   dishes.forEach((item) => juiceObjectStore.add(item));
-
   console.log("Boom! Let's run!");
 };
 
