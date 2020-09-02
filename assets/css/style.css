@@ -451,7 +451,7 @@ textarea:focus {
 /* line 23, ../sass/layout/_banner.scss */
 .banner-area2 {
   padding: 210px 0 160px;
-  background-image: url("../images/about-bg.jpg");
+  background-image: url("../images/about-bg\(1\).jpg");
   position: relative;
   z-index: 1;
 }
@@ -473,7 +473,7 @@ textarea:focus {
 
 /* line 42, ../sass/layout/_banner.scss */
 .menu-bg {
-  background-image: url("../images/menu-bg.jpg");
+  background-image: url("../images/menu-bg\(1\).jpg");
 }
 
 /* line 45, ../sass/layout/_banner.scss */
